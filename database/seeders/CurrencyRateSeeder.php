@@ -6,7 +6,7 @@ use App\Models\CurrencyRate;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CurrencySeeder extends Seeder
+class CurrencyRateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class CurrencySeeder extends Seeder
             ->each(fn ($currency) => CurrencyRate::create([
                 'currency' => $currency,
                 'common' => fake()->boolean(),
-                'rate' => fake()->numberBetween(0.5, 2.5),
+                'rate' => fake()->randomFloat(0.5, 2.5),
             ]));
     }
 }
