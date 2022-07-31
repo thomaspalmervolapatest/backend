@@ -19,7 +19,7 @@ class CurrencyRateSeeder extends Seeder
             ->each(fn ($currency) => CurrencyRate::create([
                 'currency' => $currency,
                 'common' => fake()->boolean(),
-                'rate' => fake()->randomFloat(0.5, 2.5),
+                'rate' => fake()->randomFloat(2, 0.5, 2.5),
             ]));
     }
 }
