@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "fdd3dbfe-24f9-4fbc-9469-07494b075b1d",
+		"name": "Volopa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21972749"
+	},
+	"item": [
+		{
+			"name": "Request a token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"grant_type\": \"password\",\n    \"client_id\": 4,\n    \"client_secret\": \"TV5z1uR818chpGKlETL9x8Oq8PZmAF88aKZ99ish\",\n    \"username\": \"jacobson.jonatan@example.net\",\n    \"password\": \"password\",\n    \"scope\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/oauth/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Request a new token to consume the Volopa API with. Tokens expire every 15 minutes and should be refreshed by the refresh token which expires every 60 minutes."
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh a token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"grant_type\": \"refresh_token\",\n    \"client_id\": 4,\n    \"client_secret\": \"TV5z1uR818chpGKlETL9x8Oq8PZmAF88aKZ99ish\",\n    \"refresh_token\": \"def502000927273c96b33fa7fd68f3ad759c67049096d79a31986004928aa41cfb30f692527b041e5245807032409d0c51ae6ca4dfaa86e560097a212b18aad82a4ec9735ab73a8c0d9025b5e2faf6e60125f7e7d8b04bb844437c4c3ec10cdb8f1e8fb52e07bcdcd9e14eec9c34f131d11fc77eeea1f863dec5696e226f97ea2404b10b6e415d4a534b7ab44e8441654a258fd8a135d583842331bc0de99fab80df50e6a608727ac0387839a0cfdda378c396bacf92359cbeb0c86d6a8300a78c99a3687f49ba00984fd3a8b7c1ec16f6c204d78d322f4ee9a6177d11515dcb6f6229bbdcd86fa210f219befd5405c662f9dcf38719ffca286404e067abd8c59b9dab9381fd1e33d715afcf64308c9d690bf291be402117cdaaf3a7d858b282bcd26b3d7de846aef96326f406c84d96e2f44d359ad5f950a1f6ac152f866fdecdfae7d18e57b48539691b4b345b93a8c76348900fd59d5147374bc5633c94dcd8\",\n    \"scope\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/oauth/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Request a new token with a refresh token"
+			},
+			"response": []
+		},
+		{
+			"name": "Get currency rates",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTcyOTRkMTViOTllYzcxZjdkNDJmNDVhNWRmOTA1MDBkZGU5ZWFkYzBhZTNlMzAyYWRlYzA5ZDg3MTI4YWI1OTMwYjRmZWNhZDI1NzBiYWUiLCJpYXQiOjE2NTkyOTEzOTIuNzA5NzgsIm5iZiI6MTY1OTI5MTM5Mi43MDk3OCwiZXhwIjoxNjU5MjkyMjkyLjcwNDcxMywic3ViIjoiNSIsInNjb3BlcyI6W119.l3rAaPdEeatB8-oF5rzfV6x2w04WTIF9bw_fz5mwuifcw3o-pB31i1dyLsMU5OdjD_sF7Zum7PZlRQ8wqoa51JXt08-peJW7RGbXk4V3oajYA37-XU5thVg9MNJbBHT5bWOxShnzBWNX1AaSdG_CvhbQOpJlMGEa56RdgDfm1jJ67rhrnJJ-iotyoabcWv-pN0clEroYn4lkRf_257chmUOYl-Xx4C4QGb9GDp_jFaFenjwb_UpWmkHdY2p2FIIFNiNlKnCeB9MGif-h7OSBQwIp9Jnb5k8PiatcHhz0eXZqtD1RDP3n0h1h09zT5tuGG4NPqN83DZOQY4c8-ptC-VyDWLrBRzHQBNwxkvjURElapr1AFzxHHcnT1kifhhmEdGxEf1uO_EmvU7-RbMnHrahoouGcsqG6E3G0nvasN-8thjVVt8lIyYE1l95eTK4x6l7-A0baoIa-Vpfm7mmH8Q07rxD9CMRgQSVLPx78oMQM3ncBmcj_WpR_yZKN-ORzqh8AFPydX02fx7iU9YSE7u7OeGnii_HYvzCmCivQJ6lnB69pShRkW64CJHy9nUSHXwD_nSf8J9FP23X24zjnjb7gqNUidbnVB8ekwrjMVjIYlrNMXF9ZisyMPiPuub3J69cY2uuQ84_x3ylHGabXe0RJTdFIrNRke1GxxMuwzks",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/currency-rates",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"currency-rates"
+					]
+				},
+				"description": "Fetches a list of currency rates"
+			},
+			"response": []
+		}
+	]
+}
