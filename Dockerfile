@@ -55,8 +55,9 @@ RUN mkdir /var/log/php
 RUN touch /var/log/php/errors.log && chmod 777 /var/log/php/errors.log
 
 # Deployment steps
-RUN composer install --optimize-autoloader --no-dev
+RUN composer install --optimize-autoloader
 RUN chmod +x /var/www/docker/run.sh
+RUN chmod +x /var/www/docker/wait-for-it.sh
 
 EXPOSE 80
 ENTRYPOINT ["/var/www/docker/run.sh"]
