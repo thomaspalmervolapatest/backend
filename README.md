@@ -1,4 +1,4 @@
-# Setup
+# For Development
 * Clone and install the repository using the standard laravel install guide
 * Create database, migrate and seed: `php artisan migrate:fresh --seed`
 * Generate a password client for passport: `php artisan passport:client --password` 
