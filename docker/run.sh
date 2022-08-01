@@ -7,6 +7,7 @@ if [ -n "$DB_HOST" ]; then
   /var/www/docker/wait-for-it.sh "$DB_HOST:${DB_PORT:-6000}"
 fi
 
+php artisan key:generate
 php artisan migrate:fresh --seed
 php artisan cache:clear
 php artisan route:cache
