@@ -10,6 +10,7 @@ fi
 php artisan migrate:fresh --seed
 php artisan cache:clear
 php artisan route:cache
+php artisan passport:keys
 php artisan passport:client --password --no-interaction
 
 /usr/bin/supervisord -c /etc/supervisord.conf
