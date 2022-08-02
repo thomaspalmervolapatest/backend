@@ -1,7 +1,10 @@
 # For Development
 * Clone and install the repository using the standard laravel install guide
 * Create database, migrate and seed: `php artisan migrate:fresh --seed`
-* Generate a password client for passport: `php artisan passport:client --password` 
+* Generate a password client for passport: `php artisan passport:client --password`
+
+# Testing
+Tests can be ran by running: `php artisan test`
 
 # API Documentation
 In the `documentation` folder is a postman collection that can be imported which has documentation attached.
